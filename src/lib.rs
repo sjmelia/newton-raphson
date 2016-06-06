@@ -1,8 +1,31 @@
-// vim: set ft=javascript ts=4 et sw=4 tw=80:
+//! A minimal module for calculating roots using the Newton-Raphson method,
+//! as described by [Wikipedia](https://en.wikipedia.org/wiki/Newton's_method)
+//!
+//! # Examples
+//!
+//! [Solution of cos(c) = x^3^]
+//! (https://en.wikipedia.org/wiki/Newton%27s_method#Solution_of_cos.28x.29_.3D_x3)
+//!
+//! ```
+//! use std::f64;
+//! use newton_raphson::find_root;
+//! fn cosx(x: f64) -> f64 {
+//!     x.cos() - (x * x * x)
+//! }
+//!
+//! fn cosx_d(x: f64) -> f64 {
+//!     -x.sin() - 3.0 * (x * x)
+//! }
+//!
+//! assert_eq!(0.8654740331016144, find_root(cosx, cosx_d, 0.5, 6));
+//! ```
 
-/// This function finds the root of the function f
+/// Finds the root of the function f
 ///
 /// # Examples
+///
+/// [Finding the square root of a number]
+/// (https://en.wikipedia.org/wiki/Newton%27s_method#Square_root_of_a_number)
 ///
 /// ```
 /// use newton_raphson::find_root;
@@ -24,9 +47,12 @@ pub fn find_root(f: fn(f64) -> f64, fd: fn(f64) -> f64, guess: f64, iterations: 
     result
 }
 
-/// This function runs through one iteration of the Newton-Raphson method
+/// Runs through one iteration of the Newton-Raphson method
 ///
 /// # Examples
+///
+/// [Finding the square root of a number]
+/// (https://en.wikipedia.org/wiki/Newton%27s_method#Square_root_of_a_number)
 ///
 /// ```
 /// use newton_raphson::iteration;
