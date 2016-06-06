@@ -1,5 +1,10 @@
 [package]
 name = "newton-raphson"
+description = "Calculate roots of functions using the Newton-Raphson method"
+repository = "https://github.com/sjmelia/newton-raphson"
+readme = "README.md"
+keywords = ["newton", "root"]
+license = "MIT"
 version = "0.1.0"
 authors = ["Steve Melia <steve.j.melia@gmail.com>"]
 
